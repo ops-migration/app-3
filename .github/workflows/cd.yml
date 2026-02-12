@@ -1,9 +1,9 @@
-name: CD - Deploy to Dev
+name: CD - Deploy to stage
 
 on:
   push:
     branches:
-      - feature-dev-i
+      - feature-stage-i
 
 jobs:
   deploy-dev:
