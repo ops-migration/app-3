@@ -1,0 +1,29 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - release/**
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+  security-events: write
+  id-token: write
+
+jobs:
+  ci:
+    uses: ops-migration/central-shared-workflow/.github/workflows/ci-workflow.yml@main1
+    with:
+      ecr-repository: "hat/app-2"  # Change per repository
+      aws-region: "us-east-1"
+      target-branch: "feature-dev-i"
+      sonar-enabled: true
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      PAT_TOKEN: ${{ secrets.PAT_TOKEN }}
