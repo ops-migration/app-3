@@ -17,9 +17,9 @@ permissions:
 
 jobs:
   ci:
-    uses: ops-migration/central-shared-workflow/.github/workflows/ci-workflow.yml@main1
+    uses: ops-migration/central-shared-workflow/.github/workflows/ci-workflow.yml@main
     with:
-      ecr-repository: "hat/app-3"  # Change per repository
+      ecr-repository: "app-3"
       aws-region: "us-east-1"
       target-branch: "feature-dev-i"
       sonar-enabled: true
